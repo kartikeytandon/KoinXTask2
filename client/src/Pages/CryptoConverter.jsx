@@ -13,15 +13,15 @@ function CryptoCoverter() {
     event.preventDefault();
 
     try {
-      const response = await axios.get(`https://koinx2.onrender.com/getPrice?fromCurrency=${fromCurrency}&toCurrency=${toCurrency}&date=${date}`);
+      const response = await axios.get(`http://localhost:8000/getPrice?fromCurrency=${fromCurrency}&toCurrency=${toCurrency}&date=${date}`);
       const data = response.data
 
       console.log(data);
       
       setPrice(data.price);
+      console.log(price);
       setError('');
 
-      console.log(price);
     } catch (error) {
       console.error(error);
       setPrice('');

@@ -10,9 +10,9 @@ app.get('/getPrice', async (req, res) => {
     try {
         const { fromCurrency, toCurrency, date } = req.query
         
-        // console.log(fromCurrency);
-        // console.log(toCurrency);
-        // console.log(date);
+        console.log(fromCurrency);
+        console.log(toCurrency);
+        console.log(date);
 
         const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${fromCurrency}/history?date=${date}`)
         const fromCurrencyPrice = response.data.market_data.current_price[toCurrency]
@@ -23,6 +23,7 @@ app.get('/getPrice', async (req, res) => {
             toCurrency,
             date,
             price: fromCurrencyPrice
+            // price: 5
         })
     } catch (error) {
         console.error(error);
