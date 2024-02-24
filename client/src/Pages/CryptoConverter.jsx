@@ -12,7 +12,7 @@ function CryptoCoverter() {
     event.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:8000/getPrice?fromCurrency=${fromCurrency}&toCurrency=${toCurrency}&date=${date}`);
+      const response = await fetch(`http://koinxtask2-production.up.railway.app/getPrice?fromCurrency=${fromCurrency}&toCurrency=${toCurrency}&date=${date}`);
       const data = await response.json();
       
       setPrice(data.price);
