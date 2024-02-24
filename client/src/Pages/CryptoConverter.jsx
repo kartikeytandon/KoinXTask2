@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios'
 import './CryptoCoverter.css'
 
 function CryptoCoverter() {
@@ -12,8 +13,8 @@ function CryptoCoverter() {
     event.preventDefault();
 
     try {
-      const response = await fetch(`https://koinx2.onrender.com/getPrice?fromCurrency=${fromCurrency}&toCurrency=${toCurrency}&date=${date}`);
-      const data = await response.json();
+      const response = await axios.get(`http://localhost:8000/getPrice?fromCurrency=${fromCurrency}&toCurrency=${toCurrency}&date=${date}`);
+      const data = await response.data
       
       setPrice(data.price);
       setError('');

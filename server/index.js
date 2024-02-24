@@ -17,6 +17,7 @@ app.get('/getPrice', async (req, res) => {
         const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${fromCurrency}/history?date=${date}`)
         const fromCurrencyPrice = response.data.market_data.current_price[toCurrency]
         
+        console.log(fromCurrencyPrice)
         res.json({
             fromCurrency,
             toCurrency,
